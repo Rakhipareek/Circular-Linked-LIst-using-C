@@ -105,27 +105,54 @@ int main()
 
     fourth->data = 4;
     fourth->next = head;
+    
+    int n;
+    printf("Enter 1 for traverse only, 2 for insert at first, 3 for insert at last, 4 for inserting at index, 5 for inserting a node at the node having a data value\n");
+    scanf("%d", &n);
+    switch(n)
+    {
+        case 1:
+            {
+                printf("Elements  of circular linked list are: \n");
+                traverse(head);
+                break;
+            }
+        case 2:
+            {
+                printf("\nElements of circular linked list after inserting a node at start are: \n");
+                head = insertAtFirst(head, 98);
+                traverse(head);
+                break;
+            }
+        case 3:
+            {
+                printf("\nElements of circular linked list after inserting a node at the end are: \n");
+                head = insertAtLast(head, 898);
+                traverse(head);
+                break;
+            }
+        case 4:
+            {
+                int index = 2;
+                printf("\nElements of circular linked list after inserting a node at the index %d are: \n", index);
+                head = insertAtIndex(head, 8976, index);
+                traverse(head);
+                break;
+            }
+        case 5:
+            {
+                int data = 8976;
+                printf("\nElements of circular linked list after inserting a node inplace of node having data value %d are: \n", data);
+                head = insertAtData(head, 888, data);
+                traverse(head);
+                break;
+            }
+        default:
+            {
+                printf("!!!!!!!!!!!ERROR!!!!!!!!!Wrong Choice, Try again\n");
+                break;
+            }
 
-    printf("Elements  of circular linked list are: \n");
-    traverse(head);
-
-    printf("\nElements of circular linked list after inserting a node at start are: \n");
-    head = insertAtFirst(head, 98);
-    traverse(head);
-
-    printf("\nElements of circular linked list after inserting a node at the end are: \n");
-    head = insertAtLast(head, 898);
-    traverse(head);
-
-    int index = 2;
-    printf("\nElements of circular linked list after inserting a node at the index %d are: \n", index);
-    head = insertAtIndex(head, 8976, index);
-    traverse(head);
-
-    int data = 8976;
-    printf("\nElements of circular linked list after inserting a node inplace of node having data value %d are: \n", data);
-    head = insertAtData(head, 888, data);
-    traverse(head);
-
+    }
     return 0;
 }
